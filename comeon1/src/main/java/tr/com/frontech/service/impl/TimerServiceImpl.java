@@ -1,6 +1,8 @@
 package tr.com.frontech.service.impl;
 
+import com.google.inject.Inject;
 import com.google.inject.Singleton;
+import com.google.inject.name.Named;
 import org.apache.log4j.Logger;
 import tr.com.frontech.service.TimerService;
 
@@ -22,12 +24,14 @@ public class TimerServiceImpl implements TimerService {
 
     private Long randLong;
     private String randStr;
-    private Integer period = 8;
+    private Integer period;
     private ScheduledFuture<?> scheduledFuture;
     private RandomRunnable randomRunnable = new RandomRunnable();
 
-    public TimerServiceImpl() {
-        this.scheduledFuture = timer.scheduleAtFixedRate(randomRunnable, 0, period, TimeUnit.SECONDS);
+    @Inject
+    public TimerServiceImpl(@Named("default.period") String period) {
+        this.period = Integer.valueOf(period);
+        this.scheduledFuture = timer.scheduleAtFixedRate(randomRunnable, 0, this.period, TimeUnit.SECONDS);
     }
 
     @Override

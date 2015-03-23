@@ -1,0 +1,16 @@
+#!/bin/sh
+
+~/Development/server/tomcat-7.0.56/bin/shutdown.sh
+
+rm -rf ~/Development/server/tomcat-7.0.56/webapps/comeon*
+
+cd ~/Development/workspace/frontech/comeon1/
+mvn clean install
+cp target/comeon1.war ~/Development/server/tomcat-7.0.56/webapps/
+
+cd ~/Development/workspace/frontech/comeon2/
+mvn clean install
+cp target/comeon2.war ~/Development/server/tomcat-7.0.56/webapps/
+
+~/Development/server/tomcat-7.0.56/bin/startup.sh
+

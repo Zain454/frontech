@@ -1,0 +1,38 @@
+body {
+    background-color: #444;
+}
+
+.main.container {
+    background-color: #FFFFFF;
+    margin: 0 auto;
+    padding: 2em 2em 7em;
+    max-width: 990px;
+}
+
+.field {
+    margin: 10px;
+}
+
+.search {
+    float: right;
+}
+
+.hide {
+    display: none;
+}
+
+.alert {
+    height: 30px;
+    font-size: 16px;
+}
+
+.alert-danger {
+    color: #c7254e;
+}
+
+#loginForm label.error {
+    margin-top: 10px;
+    width: 200px;
+    position: absolute;
+    color: #c7254e;
+}

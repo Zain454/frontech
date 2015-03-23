@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>ComeOn Javascript Test</title>
+        <link href="images/favicon.ico" rel="shortcut icon">
+
+        <link rel="stylesheet" type="text/css" href="stylesheets/semantic.css"/>
+        <link rel="stylesheet" type="text/css" href="stylesheets/styles.css"/>
+        <link rel="stylesheet" type="text/css" href="stylesheets/components/search.min.css"/>
+        <link rel="stylesheet" type="text/css" href="stylesheets/components/transition.min.css"/>
+
+        <script src="lib/jquery-2.1.3.min.js"></script>
+        <script src="lib/jquery.mockjax-1.6.1.min.js"></script>
+        <script src="lib/comeon.game-1.0.min.js"></script>
+        <script src="lib/jquery.validate.min.js"></script>
+        <script src="lib/jquery.loadTemplate-1.4.5.min.js"></script>
+        <script src="stylesheets/components/search.min.js"></script>
+        <script src="stylesheets/components/transition.min.js"></script>
+        <script src="lib/comeon.js"></script>
+        <script src="mock/mock-api.js"></script>
+
+        <script type="text/html" id="player-template">
+            <div class="player item" data-template-bind='{"attribute": "data-username", "value": "username"}'>
+                <img class="ui avatar image" data-src="avatar" data-alt="avatar">
+
+                <div class="content">
+                    <div class="header"><b data-content="name" class="name"></b></div>
+                    <div data-content="event" class="description event"></div>
+                </div>
+            </div>
+        </script>
+
+        <script type="text/html" id="games-template">
+            <div class="game item" data-id="code" data-template-bind='[{"attribute": "data-code", "value": "code"}, {"attribute": "data-category-ids", "value": "categoryIds"}]'>
+                <div class="ui small image">
+                    <img data-src="icon" alt="game-icon">
+                </div>
+                <div class="content">
+                    <div class="header"><b data-content="name" class="name"></b></div>
+                    <div data-content="description" class="description">
+                    </div>
+                    <div class="extra">
+                        <div class="play ui right floated secondary button inverted">
+                            Play
+                            <i class="right chevron icon"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </script>
+
+        <script type="text/html" id="categories-template">
+            <div class="category item" data-template-bind='{"attribute": "data-id", "value": "id"}'>
+                <div class="content">
+                    <div data-content="name" class="header"></div>
+                </div>
+            </div>
+        </script>
+    </head>
+    <body>
+        <div class="ui one column center aligned page grid">
+            <div class="column twelve wide">
+                <img src="images/logo.png" alt="logo">
+            </div>
+        </div>
+        <div class="main container">
+            <div class="login" style="display:block;">
+                <div class="ui grid centered">
+                    <form id="login-form">
+                        <div id="response" class="fields hide">
+                            <div class="required field">
+                                <p class="alert alert-danger"></p>
+                            </div>
+                        </div>
+                        <div class="fields">
+                            <div class="required field">
+                                <div class="ui icon input">
+                                    <input id="username" type="text" name="username" placeholder="Username">
+                                    <i class="user icon"></i>
+                                </div>
+                            </div>
+                            <div class="required field">
+                                <div class="ui icon input">
+                                    <input id="password" type="password" name="password" placeholder="Password">
+                                    <i class="lock icon"></i>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <div class="ui icon input">
+                                    <input type="submit" value="Login">
+                                    <i class="right chevron icon"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="casino" style="display:none;">
+                <div class="ui grid centered">
+                    <div class="twelve wide column">
+                        <div id="player-container" class="ui list">
+                        </div>
+                        <div class="logout ui left floated secondary button inverted">
+                            <i class="left chevron icon"></i>Log Out
+                        </div>
+                    </div>
+                    <div class="four wide column">
+                        <div class="search ui small icon input">
+                                <input class="prompt" type="text" placeholder="Search Game" autocomplete="off" />
+                                <i class="search icon"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="ui grid">
+                    <div class="twelve wide column">
+                        <h3 class="ui dividing header">Games</h3>
+
+                        <div id="games-container" class="ui relaxed divided game items links">
+                        </div>
+                    </div>
+                    <div class="four wide column">
+                        <h3 class="ui dividing header">Categories</h3>
+
+                        <div id="categories-container" class="ui selection animated list category items">
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="ingame" style="display: none;">
+                <div class="ui grid centered">
+                    <div class="three wide column">
+                        <div id="back" class="ui right floated secondary button inverted"><i class="left chevron icon"></i>Back
+                        </div>
+                    </div>
+                    <div class="ten wide column">
+                        <div id="game-launch">
+                        </div>
+                    </div>
+                    <div class="three wide column"></div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

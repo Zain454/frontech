@@ -18,7 +18,7 @@ public class TimerServiceImpl implements TimerService {
     private final static Logger LOGGER = Logger.getLogger(TimerServiceImpl.class);
     private static final Random random = new Random();
 
-    private final ScheduledExecutorService timer = Executors.newScheduledThreadPool(1);;
+    private final ScheduledExecutorService timer = Executors.newScheduledThreadPool(1);
 
     private Long randLong;
     private String randStr;
@@ -44,7 +44,7 @@ public class TimerServiceImpl implements TimerService {
         @Override
         public void run() {
             randLong = random.nextLong();
-            randStr = String.valueOf(UUID.randomUUID().toString());
+            randStr = UUID.randomUUID().toString();
         }
     }
 

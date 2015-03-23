@@ -42,7 +42,7 @@ $(function() {
                     loadCategories();
                 } else {
                     $('#response').removeClass('hide')
-                    $('#loginForm .alert').html(data.error);
+                    $('#login-form .alert').html(data.error);
                 }
             }
         });
@@ -89,8 +89,8 @@ $(function() {
                 $('.ui.search')
                     .search({
                         source : data,
-                        searchFields : ['name'],
-                        searchFullText: false,
+                        searchFields : ['name', 'description'],
+                        searchFullText: true,
                         minCharacters: 0,
                         cache: false,
                         onResults: function (data) {
@@ -108,7 +108,7 @@ $(function() {
                 $('.play').on('click', function () {
                     $('.casino').transition('fade');
                     $('.ingame').transition('fade');
-                    comeon.game.launch($(this).data('code'));
+                    comeon.game.launch($(this).id);
                 });
             }
         });

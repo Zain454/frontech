@@ -29,7 +29,8 @@ public class UpdaterServlet extends HttpServlet {
 
         LOGGER.info("Period has changed to " + period);
 
-        response.getWriter().println("Period has changed to " + period);
+        response.getWriter().write("Period has changed to " + period);
+        response.getWriter().flush();
     }
 
 }

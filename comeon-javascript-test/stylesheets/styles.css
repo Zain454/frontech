@@ -30,7 +30,7 @@ body {
     color: #c7254e;
 }
 
-#loginForm label.error {
+#login-form label.error {
     margin-top: 10px;
     width: 200px;
     position: absolute;
